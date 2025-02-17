@@ -1,0 +1,285 @@
+</html>
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <!-- Meta Tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="Site keywords here">
+    <meta name="description" content="">
+    <meta name='copyright' content=''>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Title -->
+    <title>Vespers</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="img/favicon.png">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Nice Select CSS -->
+    <link rel="stylesheet" href="css/nice-select.css">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!-- icofont CSS -->
+    <link rel="stylesheet" href="css/icofont.css">
+    <!-- Slicknav -->
+    <link rel="stylesheet" href="css/slicknav.min.css">
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="css/owl-carousel.css">
+    <!-- Datepicker CSS -->
+    <link rel="stylesheet" href="css/datepicker.css">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="css/animate.min.css">
+    <!-- Magnific Popup CSS -->
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <!-- Medipro CSS -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <style>
+        .card {
+            margin-bottom: 20px;
+            border: 1px solid #1A76D1;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-body {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .card-title {
+            color: #1A76D1;
+            font-weight: bold;
+        }
+
+        .card-text {
+            font-size: 1.1em;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader-outter"></div>
+            <div class="loader-inner"></div>
+
+            <div class="indicator">
+                <svg width="16px" height="12px">
+                    <polyline id="back" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
+                    <polyline id="front" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
+                </svg>
+            </div>
+        </div>
+    </div>
+    <!-- End Preloader -->
+
+
+
+    <!-- Header Area -->
+    <header class="header">
+        <!-- Topbar -->
+        
+        <!-- End Topbar -->
+        <!-- Header Inner -->
+        <!-- Header Inner -->
+		<div class="header-inner"> <style>
+            .header-inner {
+                background-color: #1A76D1;
+            }
+        </style>
+			<div class="container">
+				<div class="inner">
+					<div class="row">
+						<div class="col-lg-3 col-md-3 col-12">
+							<!-- Start Logo -->
+							<div class="logo"><img src="/img/smartmed.png" alt="">
+								<a href="index.html"
+									style="color: #1A76D1; font-size: 2em; font-family: 'Poppins', sans-serif;"></a>
+							</div>
+							<!-- End Logo -->
+							<!-- Mobile Nav -->
+							<div class="mobile-nav"></div>
+							<!-- End Mobile Nav -->
+						</div>
+						<div class="col-lg-7 col-md-9 col-12">
+							<!-- Main Menu -->
+			
+							<!--/ End Main Menu -->
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+        <!--/ End Header Inner -->
+    </header>
+    <!-- End Header Area -->
+
+    <!-- Slider Area -->
+      <!-- Results Section -->
+    <section class="results">
+        <div class="container">
+            <h1>Resultados</h1>
+            <div id="narrative" class="row"></div>
+        </div>
+    </section>
+    <!-- End Results Section -->
+
+   
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const formData = Object.fromEntries(urlParams.entries());
+
+            const altura = parseFloat(formData.altura) / 100; // Converter para metros
+            const peso = parseFloat(formData.peso);
+            const imc = (peso / (altura * altura)).toFixed(2);
+
+            let categoriaImc = 'Normal';
+            if (imc >= 25) {
+                categoriaImc = 'Sobrepeso';
+            } else if (imc < 18.5) {
+                categoriaImc = 'Abaixo do peso';
+            }
+
+            // Valores de exemplo, podem ser substituídos por dados reais
+            const frequenciaCardiaca = 71;
+            const sistolica = 132;
+            const diastolica = 76;
+            const saturacaoOxigenio = '97%';
+            const nivelEstresse = 'Normal';
+            const riscoDoencaCardiaca = 'Baixo';
+            const riscoAVC = 'Baixo';
+
+            // Criando uma lista para os resultados
+            const narrativa = `
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Índice de Massa Corporal (IMC)</h5>
+                            <p class="card-text">${imc} (${categoriaImc})</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Frequência Cardíaca</h5>
+                            <p class="card-text">${frequenciaCardiaca} bpm</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Pressão Arterial</h5>
+                            <p class="card-text">${sistolica}/${diastolica} mmHg</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Saturação de Oxigênio</h5>
+                            <p class="card-text">${saturacaoOxigenio}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Nível de Estresse</h5>
+                            <p class="card-text">${nivelEstresse}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Risco de Doença Cardíaca</h5>
+                            <p class="card-text">${riscoDoencaCardiaca}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Risco de AVC</h5>
+                            <p class="card-text">${riscoAVC}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Inserir a narrativa no HTML
+            const narrativeContainer = document.getElementById('narrative');
+            narrativeContainer.innerHTML = narrativa;
+        });
+    </script>
+
+
+           
+            <!-- jquery Min JS -->
+            <script src="js/jquery.min.js"></script>
+            <!-- jquery Migrate JS -->
+            <script src="js/jquery-migrate-3.0.0.js"></script>
+            <!-- jquery Ui JS -->
+            <script src="js/jquery-ui.min.js"></script>
+            <!-- Easing JS -->
+            <script src="js/easing.js"></script>
+            <!-- Color JS -->
+            <script src="js/colors.js"></script>
+            <!-- Popper JS -->
+            <script src="js/popper.min.js"></script>
+            <!-- Bootstrap Datepicker JS -->
+            <script src="js/bootstrap-datepicker.js"></script>
+            <!-- Jquery Nav JS -->
+            <script src="js/jquery.nav.js"></script>
+            <!-- Slicknav JS -->
+            <script src="js/slicknav.min.js"></script>
+            <!-- ScrollUp JS -->
+            <script src="js/jquery.scrollUp.min.js"></script>
+            <!-- Niceselect JS -->
+            <script src="js/niceselect.js"></script>
+            <!-- Tilt Jquery JS -->
+            <script src="js/tilt.jquery.min.js"></script>
+            <!-- Owl Carousel JS -->
+            <!-- <script src="js/owl-carousel.js"></script> -->
+            <!-- counterup JS -->
+            <script src="js/jquery.counterup.min.js"></script>
+            <!-- Steller JS -->
+            <script src="js/steller.js"></script>
+            <!-- Wow JS -->
+            <script src="js/wow.min.js"></script>
+            <!-- Magnific Popup JS -->
+            <script src="js/jquery.magnific-popup.min.js"></script>
+            <!-- Counter Up CDN JS -->
+            <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+            <!-- Bootstrap JS -->
+            <script src="js/bootstrap.min.js"></script>
+            <!-- Main JS -->
+            <script src="js/main.js"></script>
+            <!-- Face-App -->
+            <script defer src="https://cdn.jsdelivr.net/npm/face-api.js"></script>
+            <!-- video -->
+            <!-- <video id="video" width="720" height="560" autoplay muted></video> -->
+</body>
+
+</html>
